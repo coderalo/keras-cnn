@@ -14,7 +14,6 @@ from Net import Net
 import numpy as np
 import random
 
-
 class DenseNet(Net):
     def __init__(self, model_data):
         # model_data: the parameters of all layers
@@ -85,6 +84,10 @@ class DenseNet(Net):
 
 
     def build_model(self):
+        """
+            You should add any layer which is not in DenseNet block here.
+            I copy the setting in original paper.
+        """
         FI = I = Input(self.input_shape)
         I = self.build_blocks(I)
         

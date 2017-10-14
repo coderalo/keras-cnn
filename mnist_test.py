@@ -1,4 +1,6 @@
 from ResNet import ResNet
+from DenseNet import DenseNet
+from SENet import SENet
 from keras.datasets import mnist
 from keras.utils import to_categorical
 import numpy as np
@@ -18,11 +20,13 @@ parser.add_argument('--batch_size', type=int, default=32, help='the batch size [
 parser.add_argument('--nb_epoch', type=int, default=50, help='the number of training epochs [50]')
 parser.add_argument('--momentum', type=float, default=0.9, help='the momentum rate [0.9]')
 parser.add_argument('--val_split', type=float, default=0.2, help='the split of validation data [0.2]')
-parser.add_argument('--model_data', default="model.json", help='the path of hyperparameters of the network [model.json]')
+parser.add_argument('--model_data', default="jsons/resnet_34.json", help='the path of hyperparameters of the network [model.json]')
 args = parser.parse_args()
 
 with open(args.model_data, 'r') as file: model_data = json.load(file)
 if args.model_type == "ResNet": net = ResNet(model_data)
+elif args.model_type == "DenseNet": net = DenseNet(model_data)
+elif args.model_type == "SENet": net = SENet(model_data)
 
 (train_X, train_y), (test_X, test_y) = mnist.load_data()
 train_X, test_X = np.expand_dims(train_X, 3), np.expand_dims(test_X, 3)
