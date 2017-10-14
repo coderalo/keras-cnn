@@ -1,8 +1,4 @@
-from keras.layers import Input, Dense, Activation
-from keras.layers import Conv2D, MaxPooling2D, GlobalAveragePooling2D
-from keras.layers import Add
-from keras.layers import BatchNormalization
-from keras.models import Model, load_model
+from keras.models import load_model
 from keras.callbacks import ModelCheckpoint, History, Callback, ReduceLROnPlateau
 from keras.optimizers import SGD, Adam
 from keras.regularizers import l2

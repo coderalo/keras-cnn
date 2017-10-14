@@ -1,3 +1,9 @@
+"""
+Reference:
+    https://arxiv.org/abs/1512.03385
+    https://arxiv.org/abs/1603.05027
+"""
+
 from keras.layers import Input, Dense, Activation
 from keras.layers import Conv2D, MaxPooling2D, GlobalAveragePooling2D
 from keras.layers import Add
